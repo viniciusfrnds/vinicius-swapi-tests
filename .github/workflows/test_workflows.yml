@@ -14,16 +14,16 @@ jobs:
     strategy:
       matrix:
         file: [
-          "__test__/test_planets.js",                 # Testes de Planetas
-          "__test__/test_specific_planet.js",         # Testes de um planeta específico
-          "__test__/test_starships.js",               # Testes de Naves
-          "__test__/test_specific_starship.js",       # Testes de uma nave específica
-          "__test__/test_films.js",                   # Testes de Filmes
-          "__test__/test_specific_film.js",           # Testes de um filme específico
-          "__test__/test_people.js",                  # Testes de Pessoas
-          "__test__/test_specific_character.js",      # Testes de um personagem específico
-          "__test__/test_invalid_route.js",           # Testes de rota inválida
-          "__test__/test_nonexistent_resource.js"     # Testes de recurso inexistente
+          "__tests__/test_planets.js",                    # Teste de planetas
+          "__tests__/test_specific_planet.js",            # Teste de um planeta específico
+          "__tests__/test_starships.js",                  # Teste de naves
+          "__tests__/test_specific_starship.js",          # Teste de uma nave específica
+          "__tests__/test_films.js",                      # Teste de filmes
+          "__tests__/test_specific_film.js",              # Teste de um filme específico
+          "__tests__/test_people.js",                     # Teste de personagens
+          "__tests__/test_specific_character.js",        # Teste de um personagem específico
+          "__tests__/test_invalid_route.js",              # Teste de rota inválida
+          "__tests__/test_nonexistent_resource.js"        # Teste de recurso inexistente
         ]
     steps:
       - uses: actions/checkout@v2
@@ -32,5 +32,5 @@ jobs:
         with:
           node-version: '16'
       - run: npm install
-      - name: Run Jest test
+      - name: Run Jest tests
         run: npm test ${{ matrix.file }}
