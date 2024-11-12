@@ -1,6 +1,12 @@
 name: SWAPI Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   test:
@@ -8,16 +14,16 @@ jobs:
     strategy:
       matrix:
         file: [
-          "tests/planets.test.js",
-          "tests/specific_planet.test.js",
-          "tests/starships.test.js",
-          "tests/specific_starship.test.js",
-          "tests/films.test.js",
-          "tests/specific_film.test.js",
-          "tests/people.test.js",
-          "tests/specific_character.test.js",
-          "tests/invalid_route.test.js",
-          "tests/nonexistent_resource.test.js"
+          "__test__/test_planets.js",                 # Testes de Planetas
+          "__test__/test_specific_planet.js",         # Testes de um planeta específico
+          "__test__/test_starships.js",               # Testes de Naves
+          "__test__/test_specific_starship.js",       # Testes de uma nave específica
+          "__test__/test_films.js",                   # Testes de Filmes
+          "__test__/test_specific_film.js",           # Testes de um filme específico
+          "__test__/test_people.js",                  # Testes de Pessoas
+          "__test__/test_specific_character.js",      # Testes de um personagem específico
+          "__test__/test_invalid_route.js",           # Testes de rota inválida
+          "__test__/test_nonexistent_resource.js"     # Testes de recurso inexistente
         ]
     steps:
       - uses: actions/checkout@v2
