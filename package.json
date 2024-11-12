@@ -1,18 +1,21 @@
 {
   "name": "vinicius-swapi-tests",
   "version": "1.0.0",
+  "description": "Testes automatizados para a API SWAPI utilizando Jest",
   "main": "index.js",
   "scripts": {
-  "test": "jest"
-},
+    "test": "jest"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "axios": "^1.7.7"
   },
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
