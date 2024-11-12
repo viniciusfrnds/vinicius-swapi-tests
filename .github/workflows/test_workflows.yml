@@ -8,16 +8,16 @@ jobs:
     strategy:
       matrix:
         file: [
-          "tests/test_planets.js",
-          "tests/test_specific_planet.js",
-          "tests/test_starships.js",
-          "tests/test_specific_starship.js",
-          "tests/test_films.js",
-          "tests/test_specific_film.js",
-          "tests/test_people.js",
-          "tests/test_specific_character.js",
-          "tests/test_invalid_route.js",
-          "tests/test_nonexistent_resource.js"
+          "tests/planets.test.js",
+          "tests/specific_planet.test.js",
+          "tests/starships.test.js",
+          "tests/specific_starship.test.js",
+          "tests/films.test.js",
+          "tests/specific_film.test.js",
+          "tests/people.test.js",
+          "tests/specific_character.test.js",
+          "tests/invalid_route.test.js",
+          "tests/nonexistent_resource.test.js"
         ]
     steps:
       - uses: actions/checkout@v2
