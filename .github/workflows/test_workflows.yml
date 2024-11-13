@@ -1,4 +1,4 @@
-name: SWAPI Tests
+name: Run Tests
 
 on:
   push:
@@ -11,26 +11,33 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         file: [
-          "__tests__/test_planets.js",                    # Teste de planetas
-          "__tests__/test_specific_planet.js",            # Teste de um planeta específico
-          "__tests__/test_starships.js",                  # Teste de naves
-          "__tests__/test_specific_starship.js",          # Teste de uma nave específica
-          "__tests__/test_films.js",                      # Teste de filmes
-          "__tests__/test_specific_film.js",              # Teste de um filme específico
-          "__tests__/test_people.js",                     # Teste de personagens
-          "__tests__/test_specific_character.js",        # Teste de um personagem específico
-          "__tests__/test_invalid_route.js",              # Teste de rota inválida
-          "__tests__/test_nonexistent_resource.js"        # Teste de recurso inexistente
+          "__tests__/test_planets.js",                 # Testes de Planetas
+          "__tests__/test_specific_planet.js",         # Testes de um planeta específico
+          "__tests__/test_starships.js",               # Testes de Naves
+          "__tests__/test_specific_starship.js",       # Testes de uma nave específica
+          "__tests__/test_films.js",                   # Testes de Filmes
+          "__tests__/test_specific_film.js",           # Testes de um filme específico
+          "__tests__/test_people.js",                  # Testes de Pessoas
+          "__tests__/test_specific_character.js",      # Testes de um personagem específico
+          "__tests__/test_invalid_route.js",           # Testes de rota inválida
+          "__tests__/test_nonexistent_resource.js"     # Testes de recurso inexistente
         ]
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
-      - run: npm install
-      - name: Run Jest tests
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest test
         run: npm test ${{ matrix.file }}
